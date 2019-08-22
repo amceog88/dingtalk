@@ -3,9 +3,10 @@ module Dingtalk
     class Sns < Base
       ACCESS_TOKEN = "sns_access_token"
 
-      def initialize
-        @app_id = Dingtalk.sns_app_id
-        @app_secret = Dingtalk.sns_app_secret
+      def initialize(app = nil)
+        @app = app
+        # @app_id = Dingtalk.sns_app_id
+        # @app_secret = Dingtalk.sns_app_secret
       end
 
       def access_token
@@ -14,15 +15,13 @@ module Dingtalk
       end
 
       def set_access_token
-        res = http_get("gettoken?appid=#{@app_id}&appsecret=#{@app_secret}")
-        redis.set(ACCESS_TOKEN, res['access_token'])
-        redis.expire(ACCESS_TOKEN, 6600)
-        redis.get(ACCESS_TOKEN)
+        res = http_get("gettoken?appid=#{@app.sns_app_id}&appsecret=#{@app.sns_app_secret}")
+        @app.update(sns_access_token: res['access_token'])
       end
 
       def get_persistent_code(code)
         params = { tmp_auth_code: code }
-        http_post("get_persistent_code?access_token=#{access_token}", params)
+        http_post("get_persistent_code?access_token=#{@app.sns_access_token}", params)
       end
 
       def get_sns_token(openid, persistent_code)
@@ -31,7 +30,7 @@ module Dingtalk
           persistent_code: persistent_code
         }
 
-        http_post("get_sns_token?access_token=#{access_token}", params)
+        http_post("get_sns_token?access_token=#{@app.sns_access_token}", params)
       end
 
       def get_user_info(sns_token)

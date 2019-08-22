@@ -13,9 +13,9 @@ module Dingtalk
         http_get("get?access_token=#{access_token}&userid=#{URI.escape userid}")
       end
 
-      def delete(userid)
-        http_get("delete?access_token=#{access_token}&userid=#{URI.escape userid}")
-      end
+      # def delete(userid)
+      #   http_get("delete?access_token=#{access_token}&userid=#{URI.escape userid}")
+      # end
 
       def get_by_mobile(mobile)
         http_get("get_by_mobile?access_token=#{access_token}&mobile=#{URI.encode_www_form_component mobile}")

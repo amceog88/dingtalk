@@ -1,7 +1,7 @@
 module Dingtalk
   class Client
-    def initialize(corp = nil)
-      @corp = corp
+    def initialize(app = nil)
+      @app = app
     end
 
     def decrypt(echo_str)
@@ -32,7 +32,7 @@ module Dingtalk
     end
 
     def jssign_package(request_url)
-      return nil unless @corp
+      return nil unless @app
 
       the_timestamp = timestamp
       the_nonce = nonce
@@ -41,7 +41,7 @@ module Dingtalk
       {
         js_ticket: base.js_ticket,
         request_url: request_url,
-        corp_id: @corp.corp_id,
+        app_id: @app.app_id,
         timeStamp: the_timestamp,
         nonceStr: the_nonce,
         signature: signature
@@ -49,7 +49,7 @@ module Dingtalk
     end
 
     def base
-      Api::Base.new(@corp)
+      Api::Base.new(@app)
     end
 
     def suite
@@ -61,27 +61,27 @@ module Dingtalk
     end
 
     def department
-      Api::Department.new(@corp)
+      Api::Department.new(@app)
     end
 
     def user
-      Api::User.new(@corp)
+      Api::User.new(@app)
     end
 
     def attendance
-      Api::Attendance.new(@corp)
+      Api::Attendance.new(@app)
     end
 
     def message
-      Api::Message.new(@corp)
+      Api::Message.new(@app)
     end
 
     def micro_app
-      Api::MicroApp.new(@corp)
+      Api::MicroApp.new(@app)
     end
 
     def call_back
-      Api::CallBack.new(@corp)
+      Api::CallBack.new(@app)
     end
 
     private
