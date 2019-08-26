@@ -3,11 +3,11 @@ module Dingtalk
     class Sns < Base
       ACCESS_TOKEN = "sns_access_token"
 
-      def initialize(app = nil)
-        @app = app
-        # @app_id = Dingtalk.sns_app_id
-        # @app_secret = Dingtalk.sns_app_secret
-      end
+      # def initialize(app = nil)
+      #   @app = app
+      #   # @app_id = Dingtalk.sns_app_id
+      #   # @app_secret = Dingtalk.sns_app_secret
+      # end
 
       def access_token
         token = redis.get(ACCESS_TOKEN)

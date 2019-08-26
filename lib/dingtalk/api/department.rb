@@ -1,6 +1,10 @@
 module Dingtalk
   module Api
     class Department < Base
+      def get(id)
+        http_get("get?access_token=#{access_token}&id=#{id}")
+      end
+
       def list
         http_get("list?access_token=#{access_token}")
       end

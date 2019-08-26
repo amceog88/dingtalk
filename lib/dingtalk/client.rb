@@ -57,7 +57,7 @@ module Dingtalk
     end
 
     def sns
-      Api::Sns.new
+      Api::Sns.new(@app)
     end
 
     def department
@@ -72,6 +72,10 @@ module Dingtalk
       Api::Attendance.new(@app)
     end
 
+    def topapi_attendance
+      Api::TopapiAttendance.new(@app)
+    end
+
     def message
       Api::Message.new(@app)
     end
@@ -82,6 +86,10 @@ module Dingtalk
 
     def call_back
       Api::CallBack.new(@app)
+    end
+
+    def approve
+      Api::Approve.new(@app)
     end
 
     private

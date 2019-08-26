@@ -21,6 +21,14 @@ module Dingtalk
         http_get("get_by_mobile?access_token=#{access_token}&mobile=#{URI.encode_www_form_component mobile}")
       end
 
+      def get_by_unionid(unionid)
+        http_get("getUseridByUnionid?access_token=#{access_token}&mobile=#{unionid}")
+      end
+
+      def get_dept_member(deptid)
+        http_get("getDeptMember?access_token=#{access_token}&deptId=#{deptid}")
+      end
+
       def create(name, mobile, department=[1], options={})
         params = options.merge(
           name: name,

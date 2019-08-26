@@ -14,8 +14,6 @@ module Dingtalk
       end
 
       def set_access_token
-        # if @app.isv_mode?
-        #   Suite.new.set_app_access_token(@app.app_id, @app.permanent_code)
         if !@app.appsecret.nil?
           set_app_access_token
         end
@@ -60,8 +58,7 @@ module Dingtalk
 
       def http_post(url, params = {})
         p = default_params.merge(params)
-        # res = RestClient.post(request_url(url), p.to_json, content_type: :json)
-        res = RestClient.post(request_url(url), p.to_json)
+        res = RestClient.post(request_url(url), p.to_json, content_type: :json)
         JSON.parse(res)
       end
 
