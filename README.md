@@ -82,7 +82,7 @@
 
     Dingtalk::Client.new(self).sns.get_sns_token(openid, persistent_code)
 
-回傳：
+#### 回傳：
 
 `sns_token`
 
@@ -197,7 +197,7 @@
 
 
 
-####變數：
+#### 變數：
 
     params = {
 
@@ -215,7 +215,7 @@
 
 
 
-###--应用管理--
+### --应用管理--
 
 
 **此应用哪些user可見**
@@ -242,7 +242,7 @@
 
 
 
-####變數：
+#### 變數：
 
 	{
 	  "agentId": 微應用代號,
@@ -271,7 +271,7 @@
 
 
 
-變數：
+#### 變數：
 
 	{
 	  "message": 推送訊息,
@@ -326,7 +326,7 @@
 
 #### 變數：
 
-    {
+    params = {
         "process_code": 審批代號, ## "PROC-79658E2D-52F0-418A-A272-D3212EA76333"
         "start_time": 開始時間, ##1563167318000
         "end_time": 結束時間, ##1565850040000
@@ -344,7 +344,7 @@
 
 #### 變數：
 
-    {
+    params = {
         "userid": 使用者叮叮id,
         "offset": 分頁號碼（從0開始）,
         "size": 顯示幾筆資料
@@ -360,7 +360,7 @@
 #### 變數：
 
 
-    {
+    params = {
         "saveProcessRequest": {
             "agentid": 微應用代號,
             "process_code": 審批代號，如要建立新的則留空,
@@ -401,7 +401,7 @@
 
 #### 變數：
 
-    {
+    params = {
         "request": {
             "agentid": 微應用代號,
             "process_code": 審批代號,
