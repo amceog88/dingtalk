@@ -22,7 +22,7 @@ module Dingtalk
       end
 
       def get_by_unionid(unionid)
-        http_get("getUseridByUnionid?access_token=#{access_token}&mobile=#{unionid}")
+        http_get("getUseridByUnionid?access_token=#{access_token}&unionid=#{unionid}")
       end
 
       def get_dept_member(deptid)
