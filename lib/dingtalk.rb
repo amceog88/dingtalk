@@ -5,7 +5,7 @@ require "dingtalk/prpcrypt"
 require "dingtalk/api"
 require "dingtalk/client"
 
-require 'redis'
+# require 'redis'
 require "rest-client"
 
 module Dingtalk
